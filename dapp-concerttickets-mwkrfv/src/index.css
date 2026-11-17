@@ -1,0 +1,96 @@
+:root {
+  --bg-obsidian: #0b0a09;
+  --surface-charcoal: #151311;
+  --surface-ticket: #f4ece1;
+  --ink-dark: #181512;
+  --ink-muted: #5c544d;
+  --accent-vermilion: #c84b31;
+  --accent-vermilion-hover: #df583c;
+  --accent-brass: #d4a359;
+  --border-subtle: rgba(244, 236, 225, 0.12);
+}
+
+body {
+  font-family: 'Noto Sans Thai', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-obsidian);
+  color: #f5efe6;
+  background-image: 
+    radial-gradient(circle at 18% 0%, rgba(200, 75, 49, 0.14), transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(212, 163, 89, 0.09), transparent 38%);
+  min-height: 100vh;
+}
+
+.font-mono-code {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Physical Ticket Perforation & Cutouts */
+.ticket-card {
+  position: relative;
+  background-color: var(--surface-ticket);
+  color: var(--ink-dark);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.75);
+}
+
+.ticket-notch-left,
+.ticket-notch-right {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: var(--bg-obsidian);
+  border-radius: 9999px;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .ticket-divider {
+    border-left: 2px dashed rgba(24, 21, 18, 0.22);
+  }
+}
+
+@media (max-width: 1023px) {
+  .ticket-divider {
+    border-top: 2px dashed rgba(24, 21, 18, 0.22);
+  }
+}
+
+/* Barcode decorative pattern */
+.ticket-barcode {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #181512 0px,
+    #181512 2px,
+    transparent 2px,
+    transparent 5px,
+    #181512 5px,
+    #181512 9px,
+    transparent 9px,
+    transparent 11px,
+    #181512 11px,
+    #181512 12px,
+    transparent 12px,
+    transparent 16px
+  );
+}
+
+/* Official rubber stamp effect */
+.stamp-badge {
+  border: 2px solid #1f6f50;
+  color: #1f6f50;
+  transform: rotate(-3deg);
+  letter-spacing: 0.06em;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
